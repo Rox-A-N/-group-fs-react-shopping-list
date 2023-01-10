@@ -3,6 +3,8 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 
 import Header from '../Header/Header.jsx'
+import ShoppingList from '../ShoppingList/ShoppingList.jsx';
+// import ShoppingListMap from '../App/ShoppingList/ShoppingList.jsx';
 import './App.css';
 
 
@@ -41,10 +43,10 @@ function App() {
         })
         .then((response) => {
             console.log(response);
-            fetchShoppingList();
             setNewListName('');
             setNewListQuantity('');
             setNewListUnit('')
+            fetchShoppingList();
         })
         .catch((error) => {
             console.log(error);
@@ -66,10 +68,26 @@ function App() {
                     <button type="submit">test</button>
                 </form>
             </main>
+            {/* <ShoppingListMap /> */}
+                {/* <ul>
+                    {shoppingList.map(item => (
+                        <li key={item.id}>
+                            {item.name}, {item.quantity}, {item.unit}
+                        </li>
+                    ))}
+                </ul> */}
+
+                <ul>
+                    {shoppingList.map(item => (
+                    <ShoppingList key = {item.id} item={item} />
+                    ))}
+                </ul>
         </div>
     );
 };
     
-/// ADDD MAPPINGGGGGGG
+/// ADDD MAPPINGGGGGGG  Should I save?
+// not yet. gotta import our shopping list
+
 
 export default App
