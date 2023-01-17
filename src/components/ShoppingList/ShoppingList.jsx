@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 
 function ShoppingList (props) {
+  const [isDeleted, setIsDeleted] = useState(true);
+  
+  const deleteItem = () => {
+    console.log('Deleted?');
+    // set state
+    setIsDeleted(!isDeleted)
+  }
+
   return (
     <li>
       {props.item.name}, {props.item.quantity}, {props.item.unit}
+      <button onClick={deleteItem}>delete</button>
     </li>
+    
   )
 }
 export default ShoppingList;

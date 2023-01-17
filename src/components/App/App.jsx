@@ -16,7 +16,7 @@ function App() {
 
     useEffect(() => {
         fetchShoppingList();
-    }, []); // this array is detting up where fetchShoppingList should fire off
+    }, []); // this array is setting up where fetchShoppingList should fire off
     
     const fetchShoppingList = () => {
         axios.get('/shopping')
@@ -65,18 +65,9 @@ function App() {
                     <input id="quantity" value={newListQuantity} onChange={(event) => setNewListQuantity(event.target.value)}/>
                     <label htmlFor="unit">Unit</label>
                     <input id="unit" value={newListUnit} onChange={(event) => setNewListUnit(event.target.value)}/>
-                    <button type="submit">test</button>
+                    <button type="submit">Submit</button>
                 </form>
             </main>
-            {/* <ShoppingListMap /> */}
-                {/* <ul>
-                    {shoppingList.map(item => (
-                        <li key={item.id}>
-                            {item.name}, {item.quantity}, {item.unit}
-                        </li>
-                    ))}
-                </ul> */}
-
                 <ul>
                     {shoppingList.map(item => (
                     <ShoppingList key = {item.id} item={item} />

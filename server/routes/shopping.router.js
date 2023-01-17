@@ -5,7 +5,7 @@ const pool = require('../modules/pool.js');
 // GET
 router.get('/', (req, res) => {
     console.log('in GET request')
-    let queryText = `SELECT * FROM "shoppingList"`;
+    let queryText = `SELECT * FROM "shoppingList" ORDER BY "name" ASC`;
 
     pool.query(queryText).then((result) =>{
         res.send(result.rows);
@@ -27,6 +27,9 @@ router.post('/', (req, res) => {
     })
 });
 // DELETE
+router.delete('/id', (req, res) => {
+    console.log('delete clicked', req.params.id);
+});
 
 // PUT
 
