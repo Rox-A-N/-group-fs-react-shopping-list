@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 function ShoppingList (props) {
   const [isDeleted, setIsDeleted] = useState(true);
+
   
   const deleteItem = () => {
     console.log('Deleted?');
@@ -9,10 +10,17 @@ function ShoppingList (props) {
     setIsDeleted(!isDeleted)
   }
 
+  const purchasedItem = () => {
+    console.log('purchased clicked');
+  }
+
+
+
   return (
     <li>
       {props.item.name}, {props.item.quantity}, {props.item.unit}
-      <button onClick={deleteItem}>delete</button>
+      <button onClick={deleteItem}>Delete</button>
+      <button onClick={purchasedItem}>Purchased</button>
     </li>
     
   )
